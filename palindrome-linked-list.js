@@ -7,8 +7,10 @@
 
 var isPalindrome = function(head) {
     for (let i = 0; i < head.length / 2; i++) {
+        console.log(head[i], head[head.length -1 - i])
 
         if (head[i] !== head[head.length -1 - i]) {
+
             return false
         }
     }
@@ -16,5 +18,6 @@ var isPalindrome = function(head) {
 };
 
 console.log(isPalindrome([1,2,2,1]))
+console.log(isPalindrome([1,2]))
 console.log(isPalindrome([1,2,3,1]))
 console.log(isPalindrome([1,2,2,1,2,2,1]))

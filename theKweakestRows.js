@@ -8,9 +8,10 @@
 
 function kWeakestRows (mat, k) {
     let numSoldiersArr = []
+    let numSoldiers = 0
     //run through mat twice, the nested loop counting the 1s and 0s
     for (let i = 0; i < mat.length; i++){
-        let numSoldiers = 0
+        numSoldiers = 0
         for (let j = 0; j < mat[i].length; j++) {
             numSoldiers += mat[i][j]
             // console.log(numSoldiers)
@@ -20,15 +21,19 @@ function kWeakestRows (mat, k) {
 
     }
     let weakestArr = []
-    for (let i = 0; i <= k; i++) {
+    for (let i = 0; i <= mat[0].length; i++) {
         let idx = numSoldiersArr.indexOf(i)
-            while (idx !== -1) {
+        // console.log(idx)
+        // console.log('i ', i)
+        while (idx !== -1) {
                 weakestArr.push(idx)
                 idx = numSoldiersArr.indexOf(i, idx +1)
+                console.log(weakestArr)
             }
             
         }
-    if (weakestArr.length > k) {
+
+    while (weakestArr.length > k) {
         weakestArr.pop()
     }
     console.log(weakestArr)
@@ -64,4 +69,13 @@ mat1 =
  [1,1,1,1,0,0],
  [1,1,1,1,1,1]]
 k = 4
+kWeakestRows(mat1, k)
+
+// example 4 
+mat1 = 
+[[1,1,1,1,1,1],
+[1,1,1,1,1,1],
+[1,1,1,1,1,1],
+[1,1,1,1,1,1]]
+k = 1
 kWeakestRows(mat1, k)
